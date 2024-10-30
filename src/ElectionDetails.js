@@ -1,84 +1,115 @@
-import React, { useState, useRef } from 'react';
+// ElectionDetails.js with complete election information
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './ElectionDetails.css';
 
 function ElectionDetails() {
+  // Access the address from useLocation
   const location = useLocation();
   const { address } = location.state || {}; // Extract the address passed from Home.js
 
-  // State to manage dropdown toggles for each district
-  const [dropdownToggled, setDropdownToggled] = useState({});
+  const [dropdownOpen, setDropdownOpen] = useState({});
 
   // Static data for election details
   const electionDetails = {
     "District 1": {
       elections: [
-        "City Council District 1 Election: Only District 1 voters can elect their City Councilmember.",
+        "City Council District 1 Election: Only District 1 voters can elect their City Councilmember."
       ],
       zipcodes: ["94702", "94710"],
-      candidates: [],
     },
     "District 2": {
       elections: [
-        "City Council District 2 Election: Only District 2 voters can elect their City Councilmember.",
+        "City Council District 2 Election: Only District 2 voters can elect their City Councilmember."
       ],
       zipcodes: ["94702", "94703"],
-      candidates: ["Jenny Guarino", "Terry Taplin"],
     },
     "District 3": {
       elections: [
-        "City Council District 3 Election: Only District 3 voters can elect their City Councilmember.",
+        "City Council District 3 Election: Only District 3 voters can elect their City Councilmember."
       ],
       zipcodes: ["94703", "94705"],
-      candidates: ["Deborah Matthews", "Ben Bartlett (I)", "John \"Chip\" Moore"],
     },
     "District 4": {
       elections: [
-        "City Council District 4 Election: Only District 4 voters can elect their City Councilmember.",
+        "City Council District 4 Election: Only District 4 voters can elect their City Councilmember."
       ],
       zipcodes: ["94702", "94703", "94704"],
-      candidates: [],
     },
     "District 5": {
       elections: [
-        "City Council District 5 Election: Only District 5 voters can elect their City Councilmember.",
+        "City Council District 5 Election: Only District 5 voters can elect their City Councilmember."
       ],
       zipcodes: ["94707", "94708", "94709"],
-      candidates: ["Todd Andrew", "Nilang Gor", "Shoshana O'Keefe"],
     },
     "District 6": {
       elections: [
-        "City Council District 6 Election: Only District 6 voters can elect their City Councilmember.",
+        "City Council District 6 Election: Only District 6 voters can elect their City Councilmember."
       ],
       zipcodes: ["94707", "94708"],
-      candidates: ["Brent Blackaby", "Andy Katz"],
     },
     "District 7": {
       elections: [
-        "City Council District 7 Election: Only District 7 voters can elect their City Councilmember.",
+        "City Council District 7 Election: Only District 7 voters can elect their City Councilmember."
       ],
       zipcodes: ["94704", "94705"],
-      candidates: [],
     },
     "District 8": {
       elections: [
-        "City Council District 8 Election: Only District 8 voters can elect their City Councilmember.",
+        "City Council District 8 Election: Only District 8 voters can elect their City Councilmember."
       ],
       zipcodes: ["94705"],
       candidates: [],
+
     },
   };
+
+  const additionalElections = [
+    {
+      office: "Mayor",
+      description: "Citywide election for Mayor. All district members can vote.",
+      candidates: [
+        "Logan Bowle",
+        "Sophie Hahn",
+        "Kate Harrison",
+        "Adena Ishii",
+        "Naomi Pete"
+      ]
+    },
+    {
+      office: "Rent Board Commissioners",
+      description: "At-large election for Rent Board Commissioners. All district members can vote.",
+      candidates: [
+        "Avery Arbaugh",
+        "Xavier Johnson (I)",
+        "Andy Kelley (I)",
+        "Carole Marasovic",
+        "Alfred Twu",
+        "Dominique Walker (I)"
+      ]
+    },
+    {
+      office: "School Board Directors",
+      description: "At-large election for School Board Directors. All district members can vote.",
+      candidates: [
+        "Laura Babitt (I)",
+        "Jen Corn",
+        "Norma J F Harrison",
+        "Abdur Sikder",
+        "Ana Vasudeo (I)"
+      ]
+    }
+  ];
 
   // Find the district based on the address or zip code
   const district = Object.keys(electionDetails).find(districtKey =>
     electionDetails[districtKey].zipcodes.some(zip => address && address.includes(zip))
   );
 
-  // Handle dropdown toggle for each district
-  const handleDropdownToggle = (district) => {
-    setDropdownToggled((prev) => ({
-      ...prev,
-      [district]: !prev[district],
+  const toggleDropdown = (office) => {
+    setDropdownOpen((prevState) => ({
+      ...prevState,
+      [office]: !prevState[office],
     }));
   };
 
@@ -99,7 +130,6 @@ function ElectionDetails() {
                   <h2>Address: {address || "No address provided"}</h2>
               </div>
 
-
               {/* Local Elections Section */}
               <section className="local-election-section">
                   <h3>Local Election</h3>
@@ -107,21 +137,20 @@ function ElectionDetails() {
                       electionDetails[district].elections.map((election, index) => (
                           <div key={index} className="election-card">
                               <div className="election-card-content">
-                                  <h4>{election}</h4>
                                   <button
                                       className="dropdown-button"
-                                      onClick={() => handleDropdownToggle(district)}
+                                      onClick={() => toggleDropdown(election)}
                                   >
-                                      {dropdownToggled[district] ? '▲' : '▼'}
+                                      {election}
                                   </button>
+                                  {dropdownOpen[election] && (
+                                      <ul className="candidates-list">
+                                          {district && additionalElections.filter(e => e.office.includes("City Council District" + district)).flatMap(e => e.candidates).map((candidate, i) => (
+                                              <li key={i}>{candidate}</li>
+                                          ))}
+                                      </ul>
+                                  )}
                               </div>
-                              {dropdownToggled[district] && electionDetails[district].candidates.length > 0 && (
-                                  <ul className="candidate-list">
-                                      {electionDetails[district].candidates.map((candidate, i) => (
-                                          <li key={i}>{candidate}</li>
-                                      ))}
-                                  </ul>
-                              )}
                           </div>
                       ))
                   ) : (
@@ -132,9 +161,25 @@ function ElectionDetails() {
               {/* Statewide Elections Section */}
               <section className="statewide-election-section">
                   <h3>Statewide</h3>
-                  <div className="election-card">
-                      <h4>Upcoming State Attorney Elections</h4>
-                  </div>
+                  {additionalElections.map((election, index) => (
+                      <div key={index} className="election-card">
+                          <div className="election-card-content">
+                              <button
+                                  className="dropdown-button"
+                                  onClick={() => toggleDropdown(election.office)}
+                              >
+                                  {election.office}: {election.description}
+                              </button>
+                              {dropdownOpen[election.office] && (
+                                  <ul className="candidates-list">
+                                      {election.candidates.map((candidate, i) => (
+                                          <li key={i}>{candidate}</li>
+                                      ))}
+                                  </ul>
+                              )}
+                          </div>
+                      </div>
+                  ))}
               </section>
 
               {/* Footer */}

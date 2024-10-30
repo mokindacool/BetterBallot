@@ -81,6 +81,11 @@
   .candidate-list {
     margin-top: 15px;
     list-style: none;
+    display: none;
+  }
+  
+  .candidate-list.visible {
+    display: block;
   }
   
   .candidate-list li {
@@ -98,6 +103,19 @@
   }
   
   .statewide-election-section .election-card {
+    text-align: center;
+  }
+  
+  /* Rent Board Commissioners & School Board Directors Sections */
+  .rent-board-section,
+  .school-board-section,
+  .mayor-section {
+    margin-top: 40px;
+  }
+  
+  .rent-board-section .election-card,
+  .school-board-section .election-card,
+  .mayor-section .election-card {
     text-align: center;
   }
   
@@ -173,4 +191,47 @@
       margin-top: 10px;
     }
   }
-  
+
+  /* Additional Styles for Dropdown Interaction */
+  .dropdown-container {
+    position: relative;
+  }
+
+  .dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    z-index: 10;
+  }
+
+  .dropdown-options.visible {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .dropdown-option:hover {
+    background: #F1F1F1;
+  }

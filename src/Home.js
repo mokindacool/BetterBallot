@@ -1,3 +1,4 @@
+// Home.js with integrated address autocomplete and navigation to ElectionDetails
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
@@ -5,22 +6,23 @@ import './Home.css';
 function Home() {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const navigate = useNavigate(); // Use hook for navigation
+  const navigate = useNavigate();
 
-  // Function to handle input changes and fetch suggestions
   const handleInputChange = (event) => {
     const userInput = event.target.value;
     setInput(userInput);
 
     if (userInput.length >= 3) {
       fetchAutocompleteSuggestions(userInput);
+    } else {
+      setSuggestions([]);
     }
   };
 
-  // Fetch autocomplete suggestions from the backend
   const fetchAutocompleteSuggestions = async (userInput) => {
     try {
-      const response = await fetch(`http://localhost:5001/autocomplete?input=${userInput}`);
+      // Make a GET request to your backend server
+      const response = await fetch(`http://localhost:5002/autocomplete?input=${userInput}`);
       const data = await response.json();
 
       if (data.predictions) {
@@ -31,16 +33,15 @@ function Home() {
     }
   };
 
-  // Handle suggestion click
   const handleSuggestionClick = (suggestion) => {
     setInput(suggestion.description);
-    setSuggestions([]); // Clear suggestions after selection
+    setSuggestions([]);
   };
 
-  // Handle the form submission
-  const handleSubmit = () => {
-    // Navigate to the election details page and pass the address as state
-    navigate('/election-details', { state: { address: input } });
+  const handleSearch = () => {
+    if (input) {
+      navigate('/election-details', { state: { address: input } });
+    }
   };
 
   return (
@@ -48,23 +49,23 @@ function Home() {
       {/* Header */}
       <header className="header">
         <div className="logo">
+          <span className="logo-text">BETTER</span>
           <span className="logo-text">BALLOT</span>
-          <span className="logo-text">BUDDY</span>
         </div>
         <nav className="navbar">
           <a href="/">Home</a>
           <a href="/about_us">About Us</a>
           <a href="/get_involved">Get Involved</a>
         </nav>
-        <a href="/candidate_profiles" className="link">www.buddy.com</a>
+        <a href="/candidate_profiles" className="link">www.betterballot.com</a>
       </header>
 
       {/* Main Content */}
       <main className="main-content">
         <div className="frame">
           <div className="main-container">
-            <div className="ballot-buddy">BALLOT BUDDY</div>
-            <div className="description">Type in your Zip Code and see your Smart Ballot</div>
+            <div className="ballot-buddy">BETTER BALLOT</div>
+            <div className="description">Type in your Address and see your Smart Ballot</div>
             <div className="input-field-wrapper">
               <div className="input-field-container">
                 <input
@@ -72,15 +73,15 @@ function Home() {
                   id="search_input"
                   type="text"
                   className="input-field"
-                  placeholder="Zip Code"
+                  placeholder="Address"
                   value={input}
                   onChange={handleInputChange}
                 />
-                <button className="search-button" onClick={handleSubmit}>Search</button>
+                <button className="search-button" onClick={handleSearch}>Search</button>
               </div>
-              {/* Autocomplete Suggestions */}
+              {/* Suggestions Dropdown */}
               {suggestions.length > 0 && (
-                <div id="autocomplete-results" className="autocomplete-results">
+                <div className="autocomplete-results">
                   {suggestions.map((suggestion, index) => (
                     <div
                       key={index}
@@ -95,6 +96,9 @@ function Home() {
             </div>
           </div>
         </div>
+
+        <div className="divider"></div>
+
         {/* Headings */}
         <div className="heading-container">
           <div className="heading">BEFORE THE POLLS</div>
@@ -128,16 +132,19 @@ function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <p>&copy; 2024 Better Ballot. All rights reserved.</p>
-          <ul className="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about_us">About Us</a></li>
-            <li><a href="/get_involved">Get Involved</a></li>
-          </ul>
-        </div>
-      </footer>
+      <div className="navigation-footer">
+        <div className="divider"></div>
+        <footer className="footer">
+          <div className="footer-content">
+            <p>&copy; 2024 Better Ballot. All rights reserved.</p>
+            <ul className="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about_us">About Us</a></li>
+              <li><a href="/get_involved">Get Involved</a></li>
+            </ul>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
