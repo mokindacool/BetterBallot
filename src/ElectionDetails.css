@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #01395E 0%, #D7CDC1 100%);
+    color: #333;
+  }
+  
+  /* Address Header - Search Bar */
+  .address-header {
+    margin: 20px auto;
+    text-align: center;
+    width: 80%;
+  }
+  
+  .search-bar {
+    position: relative;
+    margin-top: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .search-input {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    border-radius: 50px;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    outline: none;
+    font-size: 20px;
+    line-height: 150%;
+    color: #828282;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .search-input:focus {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Election Card */
+  .election-card {
+    background: #F7F7F7;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .election-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .election-card-header h4 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .dropdown-button {
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .dropdown-button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Candidate List */
+  .candidate-list {
+    margin-top: 15px;
+    list-style: none;
+  }
+  
+  .candidate-list li {
+    font-size: 16px;
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Statewide Election Section */
+  .statewide-election-section {
+    margin-top: 40px;
+  }
+  
+  .statewide-election-section .election-card {
+    text-align: center;
+  }
+  
+  /* Footer Styles */
+  .footer {
+    width: 100%;
+    padding: 20px;
+    background: #01395E;
+    color: #D1E6F7;
+    margin-top: 40px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .footer-links a {
+    color: #D1E6F7;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  
+  .footer-links a:hover {
+    color: #FFFFFF;
+  }
+  
+  .footer-link {
+    color: #D1E6F7;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .social-links {
+    margin-top: 10px;
+  }
+  
+  .social-links a {
+    color: #D1E6F7;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: color 0.2s;
+  }
+  
+  .social-links a:hover {
+    color: #FFFFFF;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .search-bar {
+      max-width: 100%;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-links {
+      justify-content: center;
+      margin-top: 10px;
+    }
+  }
+  
