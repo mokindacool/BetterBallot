@@ -250,6 +250,16 @@ input[type=text] {
     color: #fff;
 }
 
+.selected-g {
+    background-color: green;
+    color: white;
+}
+
+.selected-r {
+    background-color: red;
+    color: white;
+}
+
 /* Report an Issue Page */
 .message_box {
     color: #000;
