@@ -22,7 +22,7 @@ function Home() {
   const fetchAutocompleteSuggestions = async (userInput) => {
     try {
       // Make a GET request to your backend server
-      const response = await fetch(`http://localhost:5001/autocomplete?input=${userInput}`);
+      const response = await fetch(`http://localhost:5002/autocomplete?input=${userInput}`);
       const data = await response.json();
 
       if (data.predictions) {
