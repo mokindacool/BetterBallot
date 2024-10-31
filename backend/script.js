@@ -1,17 +1,13 @@
-// script.js
-
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5002; // You can adjust the port if necessary
-const apiKey = 'AIzaSyAJkTs0t-NeKUJlCRPDyMpLoTmflXIclE8'; // Replace with your actual Google Maps API key
+const PORT = 5002; 
+const apiKey = 'AIzaSyAJkTs0t-NeKUJlCRPDyMpLoTmflXIclE8';
 
-// Enable CORS for all routes
 app.use(cors());
 
-// Base route
 app.get('/', (req, res) => {
   res.send('Backend server is running. Use the /autocomplete endpoint for address suggestions.');
 });
