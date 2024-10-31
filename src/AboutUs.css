@@ -27,20 +27,13 @@ body {
 }
 
 /* Header */
-.header {
-    width: 100%;
-    height: 110px;
-    padding: 0 50px;
-    background: #01395E;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    position: relative;
-    /* relative vs. fixed header */
-    top: 0;
-    left: 0;
-    z-index: 1000;
+.about-us {
+    font-family: 'Inter', sans-serif;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 800px;
+    color: #D1E6F7;
+    text-align: left;
 }
 
 .logo {
@@ -104,7 +97,7 @@ body {
     box-sizing: border-box;
 }
 
-.about-us {
+.title {
     margin: 0 96px 17px 96px;
     display: inline-block;
     align-self: flex-start;
@@ -116,80 +109,46 @@ body {
     color: #D1E6F7;
 }
 
-.the-ballot-buddy-team-what-we-stand-for {
-    margin-bottom: 75.5px;
+.mission-statement {
+    margin-bottom: 30px;
     display: inline-block;
     align-self: flex-start;
     overflow-wrap: break-word;
     font-family: var(--subheading-font-family, 'Inter');
     font-weight: var(--subheading-font-weight, 400);
-    font-size: var(--subheading-font-size, 24px);
+    font-size: var(--subheading-font-size, 20px);
     line-height: var(--subheading-line-height, 1.5);
     color: #D1E6F7;
 }
 
-.paragraph-container {
-    width: 60%;
-    text-align: left;
-}
-
-.paragraph {
-    margin: 0 20.5px 79px 0;
-    display: inline-block;
-    overflow-wrap: break-word;
-    font-family: var(--body-text-font-family, 'Inter');
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 150%;
-    margin-top: 10px;
-    color: #D1E6F7;
-}
-
-
-.placeholder-image {
-     margin-top: 10px;
-     margin-left: 10px;
-
- }
-
 /*Input boxes code*/
-.input-box-container {
+.contact-form {
     width: 30%;
-    row-gap: 40px;
+    row-gap: 50px;
 }
 
-.last-name {
-    display: flex;
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.submit-button {
+    width: 170px;
     height: 50px;
-    padding: 12px 16px;
-    align-items: flex-start;
-    gap: var(--Spacing-XS, 8px);
-    flex-shrink: 0;
-    border-radius: var(--Spacing-XS, 8px);
-    border: 1px solid #E0E0E0;
-    background: #FFF;
-
-    /* Button Shadow */
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-
-}
-
-.first-name {
+    background: linear-gradient(to right, #016180 0%, #01395E 100%);
+    font-family: 'Inter', sans-serif;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
     display: flex;
-    height: 50px;
-    padding: 12px 16px;
-    align-items: flex-start;
-    gap: var(--Spacing-XS, 8px);
-    flex-shrink: 0;
-    border-radius: var(--Spacing-XS, 8px);
-    border: 1px solid #E0E0E0;
-    background: #FFF;
-
-    /* Button Shadow */
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
 }
-
 
 /* Footer */
  .navigation-footer {
