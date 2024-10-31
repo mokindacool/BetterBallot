@@ -4,7 +4,8 @@ import './ElectionDetails.css';
 
 function ElectionDetails() {
   const location = useLocation();
-  const { address } = location.state || {};
+  const initialAddress = location.state?.address || "";
+  const [address, setAddress] = useState(initialAddress);
 
   const electionDetails = {
     "District 1": {
@@ -13,40 +14,40 @@ function ElectionDetails() {
           office: "City Council District 1 Election",
           description: "Only District 1 voters can elect their City Councilmember.",
           zipcodes: ["94702", "94710"],
-          candidates: ["Candidate A1", "Candidate B1"]
+          candidates: ["The next election is in November 2026"]
         }
       ]
     },
     "District 2": {
-      elections: [
-        {
-          office: "City Council District 2 Election",
-          description: "Only District 2 voters can elect their City Councilmember.",
-          zipcodes: ["94702", "94703"],
-          candidates: ["Jenny Guarino", "Terry Taplin"]
-        }
-      ]
-    },
+        elections: [
+          {
+            office: "City Council District 2 Election",
+            description: "Only District 2 voters can elect their City Councilmember.",
+            zipcodes: ["94702", "94703"],
+            candidates: ["Jenny Guarino", "Terry Taplin"]
+          }
+        ]
+      },
     "District 3": {
       elections: [
         {
           office: "City Council District 3 Election",
           description: "Only District 3 voters can elect their City Councilmember.",
-          zipcodes: ["94703", "94705"],
+          zipcodes: ["94703", "94704"],
           candidates: ["Deborah Matthews", "Ben Bartlett (I)", "John 'Chip' Moore"]
         }
       ]
     },
     "District 4": {
-      elections: [
-        {
-          office: "City Council District 4 Election",
-          description: "Only District 4 voters can elect their City Councilmember.",
-          zipcodes: ["94702", "94703", "94704"],
-          candidates: ["Candidate A4", "Candidate B4"]
-        }
-      ]
-    },
+        elections: [
+          {
+            office: "City Council District 4 Election",
+            description: "Only District 4 voters can elect their City Councilmember.",
+            zipcodes: ["94702", "94703", "94704"],
+            candidates: ["The next election is in November 2026"]
+          }
+        ]
+      },
     "District 5": {
       elections: [
         {
@@ -63,7 +64,7 @@ function ElectionDetails() {
           office: "City Council District 6 Election",
           description: "Only District 6 voters can elect their City Councilmember.",
           zipcodes: ["94707", "94708"],
-          candidates: ["Brent Blackaby ", "Andy Katz"]
+          candidates: ["Brent Blackaby", "Andy Katz"]
         }
       ]
     },
@@ -73,7 +74,7 @@ function ElectionDetails() {
           office: "City Council District 7 Election",
           description: "Only District 7 voters can elect their City Councilmember.",
           zipcodes: ["94704", "94705"],
-          candidates: ["Candidate A7", "Candidate B7"]
+          candidates: ["The next election is in November 2026"]
         }
       ]
     },
@@ -83,17 +84,18 @@ function ElectionDetails() {
           office: "City Council District 8 Election",
           description: "Only District 8 voters can elect their City Councilmember.",
           zipcodes: ["94705"],
-          candidates: ["Candidate A8", "Candidate B8"]
+          candidates: ["The next election is in November 2026"]
         }
       ]
     }
+    // Add other districts similarly...
   };
 
   const additionalElections = [
     {
       office: "Mayor",
       description: "Citywide election for mayor.",
-      candidates: ["Logan Bowle", "Sophia Hahn", "Kate Harrison","Aden Ishii","Naomi Pete"]
+      candidates: ["Logan Bowle", "Sophia Hahn", "Kate Harrison", "Aden Ishii", "Naomi Pete"]
     },
     {
       office: "Rent Board Commissioners",
@@ -116,16 +118,21 @@ function ElectionDetails() {
     }));
   };
 
-  // Find the district based on the address or zip code
-  const district = Object.keys(electionDetails).find((districtKey) =>
-    electionDetails[districtKey].elections.some((election) =>
-      election.zipcodes.some((zip) => address && address.includes(zip))
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  // Find all districts associated with the given zip code
+  const zipCode = address.match(/\d{5}/)?.[0];
+  const associatedDistricts = Object.keys(electionDetails).filter(districtKey =>
+    electionDetails[districtKey].elections.some(election =>
+      election.zipcodes.includes(zipCode)
     )
   );
 
   return (
     <div className="election-details-container">
-        {/* Header */}
+      {/* Header */}
       <header className="header">
         <div className="logo">
           <span className="logo-text">BETTER</span>
@@ -138,61 +145,79 @@ function ElectionDetails() {
         </nav>
         <a href="/candidate_profiles" className="link">www.betterballot.com</a>
       </header>
+
+      {/* Address Header/Search Bar */}
       <div className="address-header">
-        <h2>Address: {address || "No address provided"}</h2>
+        <div className="search-bar">
+          <input
+            type="text"
+            className="search-input"
+            value={address}
+            onChange={handleAddressChange}
+            placeholder="Enter your address or ZIP code"
+          />
+        </div>
       </div>
 
       {/* Local Elections Section */}
       <section className="local-election-section">
-        <h3>Local Election</h3>
-        {district ? (
-          electionDetails[district].elections.map((election, index) => (
-            <div key={index} className="election-card">
-              <div className="election-card-content">
-                <button
-                  className="dropdown-button"
-                  onClick={() => toggleDropdown(election.office)}
-                >
-                  {election.office}: {election.description}
-                </button>
-                {dropdownOpen[election.office] && (
-                  <ul className="candidates-list">
-                    {election.candidates.map((candidate, i) => (
-                      <li key={i}>{candidate}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No election details found for the provided address.</p>
-        )}
-      </section>
+    <h3 className="local-election-title">Local Election</h3>
+    {associatedDistricts.length > 0 ? (
+        associatedDistricts.map((district, index) => (
+            electionDetails[district].elections.map((election, i) => (
+                <div key={`${index}-${i}`} className="election-card">
+                    <div className="election-card-content">
+                        <button
+                            className="dropdown-button"
+                            onClick={() => toggleDropdown(election.office)}
+                        >
+                            {election.office}: {election.description}
+                        </button>
+                        {dropdownOpen[election.office] && (
+                            <ul className="candidates-list">
+                                {election.candidates.map((candidate, j) => (
+                                    <li key={j} className="candidate-card">
+                                        <span className="candidate-label">{candidate}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                </div>
+            ))
+        ))
+    ) : ( //Basically means If-else statement in JSX
+    <p class="no-election-details">No election details found for the provided address.</p>
+    )}
+</section>
 
       {/* Statewide Elections Section */}
-      <section className="statewide-election-section">
-        <h3>Statewide</h3>
-        {additionalElections.map((election, index) => (
-          <div key={index} className="election-card">
-            <div className="election-card-content">
-              <button
-                className="dropdown-button"
-                onClick={() => toggleDropdown(election.office)}
-              >
-                {election.office}: {election.description}
-              </button>
-              {dropdownOpen[election.office] && (
-                <ul className="candidates-list">
-                  {election.candidates.map((candidate, i) => (
-                    <li key={i}>{candidate}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        ))}
-      </section>
+        {(zipCode && ["94701", "94702", "94703", "94704", "94705", "94706", "94707", "94708", "94709"].includes(zipCode)) && (
+            <section className="statewide-election-section">
+                <h3 className="statewide-election-title">Statewide Election</h3>
+                {additionalElections.map((election, index) => (
+                    <div key={index} className="election-card">
+                        <div className="election-card-content">
+                            <button
+                                className="dropdown-button"
+                                onClick={() => toggleDropdown(election.office)}
+                            >
+                                {election.office}: {election.description}
+                            </button>
+                            {dropdownOpen[election.office] && (
+                                <ul className="candidates-list">
+                                    {election.candidates.map((candidate, i) => (
+                                        <li key={i} className="candidate-card">
+                                            <span className="candidate-label">{candidate}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </section>
+        )}
 
       {/* Footer */}
       <footer className="footer">

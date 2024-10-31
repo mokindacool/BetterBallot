@@ -1,237 +1,330 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #01395E 0%, #D7CDC1 100%);
+  color: #333;
+  height: 100vh; /* Set full height to body */
+  overflow-y: auto; /* Ensure content is scrollable */
+}
+
+/* Main container to enable scrolling */
+.election-details-container {
+  padding-bottom: 80px; /* Prevent content overlap with footer */
+}
+
+/* Address Header - Search Bar */
+.address-header {
+  margin: 20px auto;
+  text-align: center;
+  width: 80%;
+}
+
+.search-bar {
+  position: relative;
+  margin-top: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  border-radius: 50px;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 20px;
+  line-height: 150%;
+  color: #828282;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Local Election Section Title */
+.local-election-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF; /* White color for the text */
+  margin: 20px 0;
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #FFFFFF; /* Underline effect */
+}
+/* Statewide Election Section Title */
+.statewide-election-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF; /* White color for the text */
+  margin: 20px 0;
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #FFFFFF; /* Underline effect */
+}
+
+/* Statewide Election Section */
+.statewide-election-section {
+  margin-top: 40px;
+  width: 90%; /* Ensure the same width as Local Election */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statewide-election-section .election-card {
+  text-align: center;
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+/* Election Card */
+.election-card {
+  background: #F7F7F7;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 90%; /* Adjusted width to be more consistent with the provided example */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-weight: bold;
+}
+
+.election-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
   
-  body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(to bottom, #01395E 0%, #D7CDC1 100%);
-    color: #333;
-  }
+}
+
+.election-card-header h4 {
+  font-size: 18px;
+  font-weight: bold;
   
-  /* Address Header - Search Bar */
-  .address-header {
-    margin: 20px auto;
-    text-align: center;
-    width: 80%;
-  }
-  
+}
+
+.dropdown-button {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dropdown-button:hover {
+  transform: scale(1.1);
+}
+
+.election-description {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Centered Election Description inside Election Card */
+.election-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000; /* Black color */
+  padding: 10px 0; /* Padding for spacing */
+  text-align: center; /* Center the text */
+}
+
+
+/* Candidate List */
+.candidates-list {
+  margin-top: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.candidate-card {
+  background: #D7CDC1;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-label {
+  font-size: 16px;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  margin-top: 10px;
+}
+
+/* Statewide Election Section */
+.statewide-election-section {
+  margin-top: 40px;
+}
+
+.statewide-election-section .election-card {
+  text-align: center;
+}
+
+/* Rent Board Commissioners & School Board Directors Sections */
+.rent-board-section,
+.school-board-section,
+.mayor-section {
+  margin-top: 40px;
+}
+
+.rent-board-section .election-card,
+.school-board-section .election-card,
+.mayor-section .election-card {
+  text-align: center;
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%;
+  padding: 20px;
+  background: #01395E;
+  color: #D1E6F7;
+  position: fixed; /* Make footer fixed at the bottom */
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: #D1E6F7;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
+.footer-link {
+  color: #D1E6F7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #D1E6F7;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: #FFFFFF;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
   .search-bar {
-    position: relative;
-    margin-top: 10px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .search-input {
-    width: 100%;
-    height: 60px;
-    padding: 0 20px;
-    border-radius: 50px;
-    border: 1px solid #E0E0E0;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    outline: none;
-    font-size: 20px;
-    line-height: 150%;
-    color: #828282;
-    transition: box-shadow 0.2s ease-in-out;
-  }
-  
-  .search-input:focus {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Election Card */
-  .election-card {
-    background: #F7F7F7;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 700px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .election-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .election-card-header h4 {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .dropdown-button {
-    border: none;
-    background: none;
-    font-size: 18px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .dropdown-button:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Candidate List */
-  .candidate-list {
-    margin-top: 15px;
-    list-style: none;
-    display: none;
-  }
-  
-  .candidate-list.visible {
-    display: block;
-  }
-  
-  .candidate-list li {
-    font-size: 16px;
-    padding: 10px;
-    background: #FFFFFF;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Statewide Election Section */
-  .statewide-election-section {
-    margin-top: 40px;
-  }
-  
-  .statewide-election-section .election-card {
-    text-align: center;
-  }
-  
-  /* Rent Board Commissioners & School Board Directors Sections */
-  .rent-board-section,
-  .school-board-section,
-  .mayor-section {
-    margin-top: 40px;
-  }
-  
-  .rent-board-section .election-card,
-  .school-board-section .election-card,
-  .mayor-section .election-card {
-    text-align: center;
-  }
-  
-  /* Footer Styles */
-  .footer {
-    width: 100%;
-    padding: 20px;
-    background: #01395E;
-    color: #D1E6F7;
-    margin-top: 40px;
-  }
-  
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  
-  .footer-links a {
-    color: #D1E6F7;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
-  }
-  
-  .footer-links a:hover {
-    color: #FFFFFF;
-  }
-  
-  .footer-link {
-    color: #D1E6F7;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .social-links {
-    margin-top: 10px;
-  }
-  
-  .social-links a {
-    color: #D1E6F7;
-    font-size: 18px;
-    margin-right: 10px;
-    transition: color 0.2s;
-  }
-  
-  .social-links a:hover {
-    color: #FFFFFF;
-  }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    .search-bar {
       max-width: 100%;
-    }
-  
-    .footer-content {
+  }
+
+  .footer-content {
       flex-direction: column;
       text-align: center;
-    }
-  
-    .footer-links {
+  }
+
+  .footer-links {
       justify-content: center;
       margin-top: 10px;
-    }
   }
+}
 
-  /* This is for additional styles but might not be needed tbh*/
-  .dropdown-container {
-    position: relative;
-  }
+/* Additional Styles for Dropdown */
+.dropdown-container {
+  position: relative;
+}
 
-  .dropdown-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
 
-  .dropdown-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease-in-out;
-    z-index: 10;
-  }
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  z-index: 10;
+}
 
-  .dropdown-options.visible {
-    max-height: 300px;
-    overflow-y: auto;
-  }
+.dropdown-options.visible {
+  max-height: 300px;
+  overflow-y: auto;
+}
 
-  .dropdown-option {
-    padding: 10px;
-    cursor: pointer;
-  }
+.dropdown-option {
+  padding: 10px;
+  cursor: pointer;
+}
 
-  .dropdown-option:hover {
-    background: #F1F1F1;
-  }
+.dropdown-option:hover {
+  background: #6c4c4c;
+}
+
+/* Election Description Section */
+.election-description {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+}
+/* No Election Details Found */
+.no-election-details {
+  font-size: 46px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin: 20px 0;
+}
+
+/* Fix the footer height and prevent overlap */
+.election-details-container {
+  padding-bottom: 100px; /* Ensures the footer doesn't overlap content */
+}
