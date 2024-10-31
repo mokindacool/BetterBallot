@@ -57,6 +57,7 @@ function Home() {
           <a href="/about_us">About Us</a>
           <a href="/get_involved">Get Involved</a>
         </nav>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
         <a href="/candidate_profiles" className="link">www.betterballot.com</a>
       </header>
 
@@ -125,7 +126,7 @@ function Home() {
           <a href="/find_a_place_to_vote" className="card find-a-place-to-vote">
             <span className="card-title">Find a Place to Vote</span>
           </a>
-          <a href="/report_an_issue" className="card report-an-issue">
+          <a href="/report_issue" className="card report-an-issue">
             <span className="card-title">Report an Issue</span>
           </a>
         </div>
