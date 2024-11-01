@@ -23,12 +23,13 @@ function RegisterToVote() {
 
       <div className="description-container">
         <div className="description">
-          While there are many platforms that you can find on the internet to help you in registering to vote, we made our own to allow you to have quick access to an all-in-one tool to register to vote.
-          Please Note that our platform currently only supports first-time voter registration.
+          COMING SOON
+          {/* While there are many platforms that you can find on the internet to help you in registering to vote, we made our own to allow you to have quick access to an all-in-one tool to register to vote.
+          Please Note that our platform currently only supports first-time voter registration. */}
         </div>
       </div>
 
-      <form action="/url" method="GET">
+      {/* <form action="/url" method="GET">
         <p className="form-descriptions">Name</p>
         <div className="input-container">
           <input type="text" name="first_name" placeholder="First Name*" required />
@@ -59,7 +60,7 @@ function RegisterToVote() {
         <div className="submit-button-container">
           <input className="submit_button" type="submit" value="Submit" />
         </div>
-      </form>
+      </form> */}
 
       {/* Footer */}
       <div className="navigation-footer">

@@ -4,7 +4,8 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 5002; 
-const apiKey = 'AIzaSyAJkTs0t-NeKUJlCRPDyMpLoTmflXIclE8';
+const googleCivicsApiKey = process.env.GOOGLE_CIVICS_API_KEY;
+
 
 app.use(cors());
 
