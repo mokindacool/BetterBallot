@@ -6,18 +6,18 @@ function RegisterToVote() {
     <div className="p">
       {/* Navigation */}
       <header className="header">
-                <div className="logo">
-                <span className="logo-text">BETTER</span>
-                <span className="logo-text">BALLOT</span>
-                </div>
-                <nav className="navbar">
-                <a href="/">Home</a>
-                <a href="/about_us">About Us</a>
-                <a href="/get_involved">Get Involved</a>
-                </nav>
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
-                <a href="/candidate_profiles" className="link">www.betterballot.com</a>
-            </header>
+        <div className="logo">
+          <span className="logo-text">BETTER</span>
+          <span className="logo-text">BALLOT</span>
+        </div>
+        <nav className="navbar">
+          <a href="/">Home</a>
+          <a href="/about_us">About Us</a>
+          <a href="/get_involved">Get Involved</a>
+        </nav>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
+        <a href="/" className="link">www.betterballot.info</a>
+      </header>
 
       <div className="title_header">Register To Vote</div>
 
