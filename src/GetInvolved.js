@@ -16,7 +16,7 @@ function GetInvolved() {
           <a href="/get_involved">Get Involved</a>
         </nav>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
-        <a href="/candidate_profiles" className="link">www.betterballot.com</a>
+        <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
       </header>
 
       {/* Get Involved Section */}
@@ -30,36 +30,42 @@ function GetInvolved() {
           to support and amplify our efforts:
         </div>
       </div>
+      
       <div className="action-cards">
-          <div className="action-card">
+        <div className="action-card">
             <h3>Provide Feedback</h3>
-            <select>
-              <option value="">Select</option>
-              <option value="option1">Surveys</option>
-              <option value="option2">Feedback</option>
-            </select>
-          </div>
-
-
-          <div className="action-card">
-            <h3>Advocate for Change</h3>
-            <select>
-              <option value="">Select</option>
-              <option value="option1">Contact</option>
-              <option value="option2">Petitions</option>
-            </select>
-          </div> 
-
-
-          <div className="action-card">
-            <h3>Donations</h3>
-            <select>
-              <option value="">Select</option>
-              <option value="option1">Donate</option>
-              <option value="option2">Fundraiser</option>
-            </select>
-          </div>
+            <div className="select-container">
+                <select>
+                    <option value="">Select</option>
+                    <option value="option1">Surveys</option>
+                    <option value="option2">Feedback</option>
+                </select>
+            </div>
         </div>
+
+        <div className="action-card">
+            <h3>Advocate for Change</h3>
+            <div className="select-container">
+                <select>
+                    <option value="">Select</option>
+                    <option value="option1">Contact</option>
+                    <option value="option2">Petitions</option>
+                </select>
+            </div>
+        </div>
+
+        <div className="action-card">
+            <h3>Donations</h3>
+            <div className="select-container">
+                <select>
+                    <option value="">Select</option>
+                    <option value="option1">Donate</option>
+                    <option value="option2">Fundraiser</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
 
       {/* Footer */}
       <div className="navigation-footer">

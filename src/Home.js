@@ -58,7 +58,7 @@ function Home() {
           <a href="/get_involved">Get Involved</a>
         </nav>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
-        <a href="/candidate_profiles" className="link">www.betterballot.com</a>
+        <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
       </header>
 
       {/* Main Content */}

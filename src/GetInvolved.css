@@ -125,7 +125,7 @@
     margin: 20px 50px;
     margin-bottom: 130px;
   }
-
+  /*
   .action-card {
     flex: 1;
     text-align: center;
@@ -141,6 +141,80 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+  */
+
+  .action-card {
+    flex: 1;
+    text-align: center;
+    padding: 30px; 
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 15px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.action-card h3 {
+    font-size: 20px;
+    color: #01395E; 
+    margin-bottom: 15px;
+}
+
+.action-card select {
+    width: 100%;
+    padding: 15px; 
+    font-size: 16px;
+    border: 1px solid #01395E; 
+    border-radius: 8px;
+    background-color: #f7f7f7; 
+    appearance: none;
+    position: relative;
+    outline: none;
+}
+
+.action-card select:focus {
+    border-color: #01395E;
+    box-shadow: 0 0 5px rgba(1, 57, 94, 0.3); 
+}
+
+/* Container for the select dropdown */
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+.action-card select {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif; /* Match the rest of the site’s font */
+  font-weight: 500; /* Set weight to match other text */
+  color: #01395E; /* Set text color to match theme */
+  border: 1px solid #01395E;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  appearance: none;
+  background: none;
+  outline: none;
+}
+
+/* Custom dropdown arrow */
+.select-container::after {
+  content: '▼';
+  font-size: 14px;
+  color: #01395E;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
   
   /* Footer */
   .navigation-footer {

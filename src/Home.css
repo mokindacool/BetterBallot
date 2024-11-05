@@ -119,22 +119,22 @@ body {
 }
 
 .ballot-buddy {
-position: relative;
-width: 837px;
-height: 77px;
-font-weight: bold;
-font-size: 64px;
-line-height: 77px;
-text-align: center;
-letter-spacing: -0.02em;
-color: #DDDDDD;
-/* Inner shadow still needs to be fixed*/
-text-shadow:
-  1px 1px 2px rgba(0, 0, 0, 0.25), 
- -1px -1px 2px rgba(0, 0, 0, 0.25), 
-  1px -1px 2px rgba(0, 0, 0, 0.25), 
- -1px 1px 2px rgba(0, 0, 0, 0.25); 
+  position: relative;
+  width: 837px;
+  height: 77px;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 77px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #DDDDDD;
+
+  /* Adjusted inner shadow */
+  text-shadow:
+      0px 1px 1px rgba(0, 0, 0, 0.2), /* subtle downward shadow */
+      -1px -1px 1px rgba(255, 255, 255, 0.5); /* subtle upward light shadow */
 }
+
 
 .description {
   font-weight: 400;

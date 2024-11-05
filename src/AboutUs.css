@@ -98,7 +98,7 @@ body {
 }
 
 .title {
-    margin: 0 96px 17px 96px;
+    margin: 0 0 17px 0; 
     display: inline-block;
     align-self: flex-start;
     overflow-wrap: break-word;
@@ -108,6 +108,7 @@ body {
     letter-spacing: var(--title-letter-spacing, -1.3px);
     color: #D1E6F7;
 }
+
 
 .mission-statement {
     margin-bottom: 30px;

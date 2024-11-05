@@ -16,7 +16,7 @@ function ReportIssue() {
           <a href="/get_involved">Get Involved</a>
         </nav>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
-        <a href="https://www.ballotbuddy.com" className="link">www.ballotbuddy.com</a>
+        <a href="https://www.betterballot.info" className="link">www.ballotbuddy.info</a>
       </header>
 
       <div className="title_header">Report an Issue</div>

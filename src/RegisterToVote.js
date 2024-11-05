@@ -16,7 +16,7 @@ function RegisterToVote() {
           <a href="/get_involved">Get Involved</a>
         </nav>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
-        <a href="/" className="link">www.betterballot.info</a>
+        <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
       </header>
 
       <div className="title_header">Register To Vote</div>

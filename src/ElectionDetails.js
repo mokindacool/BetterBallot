@@ -232,7 +232,7 @@ function ElectionDetails() {
             <li><a href="/our_data">Our Data</a></li>
             <li><a href="/press">Press</a></li>
           </ul>
-          <a href="http://www.ballotbuddy.com" className="footer-link">www.ballotbuddy.com</a>
+          <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
           <div className="social-links">
             <a href="#"><i className="fab fa-facebook"></i></a>
             <a href="#"><i className="fab fa-linkedin"></i></a>

@@ -16,7 +16,7 @@ function AbsenteeBallot() {
           <a href="/get_involved">Get Involved</a>
         </nav>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
-        <a href="/" className="link">www.ballotbuddy.info</a>
+        <a href="https://www.betterballot.info" className="link">www.ballotbuddy.info</a>
       </header>
 
       <div className="main_title_header"><span>Request an Absentee Ballot</span></div>
