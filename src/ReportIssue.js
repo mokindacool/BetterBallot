@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Cards.css';
 
 function ReportIssue() {
+  const initialFormState = {
+    first_name: '',
+    last_name: '',
+    middle_name: '',
+    issue: '',
+    message: '',
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // handle form submission, e.g., send the data to an API
+    console.log('Form data submitted:', formData);
+
+    // reset the form
+    setFormData(initialFormState);
+  };
+
   return (
     <div className="palette-2-design-variation">
       {/* Navigation */}
@@ -21,22 +47,56 @@ function ReportIssue() {
 
       <div className="title_header">Report an Issue</div>
 
-      <form action="/url" method="GET">
+      <form onSubmit={handleSubmit}>
         <p className="form-descriptions">Name</p>
         <div className="input-container">
-          <input type="text" name="first_name" placeholder="First Name*" required />
-          <input type="text" name="last_name" placeholder="Last Name*" required />
-          <input type="text" name="middle_name" placeholder="Middle Name" />
+          <input
+            type="text"
+            name="first_name"
+            placeholder="First Name*"
+            value={formData.first_name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="last_name"
+            placeholder="Last Name*"
+            value={formData.last_name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="middle_name"
+            placeholder="Middle Name"
+            value={formData.middle_name}
+            onChange={handleChange}
+          />
         </div>
 
         <p className="form-descriptions">Type of Issue</p>
         <div className="input-container">
-          <input type="text" name="issue" placeholder="Please Tell Us What is the Issue" required />
+          <input
+            type="text"
+            name="issue"
+            placeholder="Please Tell Us What is the Issue"
+            value={formData.issue}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <p className="form-descriptions">Please Describe the Issue You are Facing:</p>
         <div className="input-container">
-          <textarea className="message_box" name="message" placeholder="Message" required></textarea>
+          <textarea
+            className="message_box"
+            name="message"
+            placeholder="Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          ></textarea>
         </div>
 
         <div className="submit-button-container">
