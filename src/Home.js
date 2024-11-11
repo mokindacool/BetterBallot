@@ -66,7 +66,7 @@ function Home() {
         <div className="frame">
           <div className="main-container">
             <div className="ballot-buddy">BETTER BALLOT</div>
-            <div className="description">Type in your Address and see your Smart Ballot</div>
+            <div className="description">Type in your Zip Code and see your localized Smart Ballot</div>
             <div className="input-field-wrapper">
               <div className="input-field-container">
                 <input
@@ -74,7 +74,7 @@ function Home() {
                   id="search_input"
                   type="text"
                   className="input-field"
-                  placeholder="Address"
+                  placeholder="ZipCode"
                   value={input}
                   onChange={handleInputChange}
                 />
