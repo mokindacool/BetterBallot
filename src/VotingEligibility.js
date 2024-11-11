@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './Cards.css';
+import { useNavigate } from "react-router-dom";
 
 function VotingEligibility() {
     const [citizenAnswer, setCitizenAnswer] = useState(null);
@@ -8,10 +9,15 @@ function VotingEligibility() {
     const [territoryAnswer, setTerritoryAnswer] = useState(null);
     const [disabilityAnswer, setDisabilityAnswer] = useState(null);
     const [felonyAnswer, setFelonyAnswer] = useState(null);
+    const navigate = useNavigate();
 
-    const handleAnswerClick = (questionSetter, answer) => {
+    const handleAnswerClick = (questionSetter, answer, isRedirect) => {
         questionSetter(answer);
-    }
+        if (isRedirect) {
+            navigate('/extended_info');
+        }
+    };
+
     return (
         <div className="p">
             {/* Navigation */}
@@ -41,7 +47,7 @@ function VotingEligibility() {
                         >Yes</button>
                         <button
                             className={`no-button ${citizenAnswer === 'no' ? 'selected-r' : ''}`}
-                            onClick={() => handleAnswerClick(setCitizenAnswer, 'no')}
+                            onClick={() => handleAnswerClick(setCitizenAnswer, 'no', true)}
                         >No</button>
                     </div>
                 </div>
@@ -55,7 +61,7 @@ function VotingEligibility() {
                         >Yes</button>
                         <button
                             className={`no-button ${ageAnswer === 'no' ? 'selected-r' : ''}`}
-                            onClick={() => handleAnswerClick(setAgeAnswer, 'no')}
+                            onClick={() => handleAnswerClick(setAgeAnswer, 'no', true)}
                         >No</button>
                     </div>
                 </div>
@@ -69,7 +75,7 @@ function VotingEligibility() {
                         >Yes</button>
                         <button
                             className={`no-button ${registrationAnswer === 'no' ? 'selected-r' : ''}`}
-                            onClick={() => handleAnswerClick(setRegistrationAnswer, 'no')}
+                            onClick={() => handleAnswerClick(setRegistrationAnswer, 'no', true)}
                         >No</button>
                     </div>
                 </div>
@@ -79,7 +85,7 @@ function VotingEligibility() {
                     <div className="button-container">
                         <button
                             className={`yes-button ${territoryAnswer === 'yes' ? 'selected-r' : ''}`}
-                            onClick={() => handleAnswerClick(setTerritoryAnswer, 'yes')}
+                            onClick={() => handleAnswerClick(setTerritoryAnswer, 'yes', true)}
                         >Yes</button>
                         <button
                             className={`no-button ${territoryAnswer === 'no' ? 'selected-g' : ''}`}
@@ -93,7 +99,7 @@ function VotingEligibility() {
                     <div className="button-container">
                         <button
                             className={`yes-button ${disabilityAnswer === 'yes' ? 'selected-r' : ''}`}
-                            onClick={() => handleAnswerClick(setDisabilityAnswer, 'yes')}
+                            onClick={() => handleAnswerClick(setDisabilityAnswer, 'yes', true)}
                         >Yes</button>
                         <button
                             className={`no-button ${disabilityAnswer === 'no' ? 'selected-g' : ''}`}
@@ -107,7 +113,7 @@ function VotingEligibility() {
                     <div className="button-container">
                         <button
                             className={`yes-button ${felonyAnswer === 'yes' ? 'selected-r' : ''}`}
-                            onClick={() => handleAnswerClick(setFelonyAnswer, 'yes')}
+                            onClick={() => handleAnswerClick(setFelonyAnswer, 'yes', true)}
                         >Yes</button>
                         <button
                             className={`no-button ${felonyAnswer === 'no' ? 'selected-g' : ''}`}

@@ -10,6 +10,7 @@ import PollWorker from './PollWorker';
 import ReportIssue from './ReportIssue';
 import FindAPlaceToVote from './FindAPlaceToVote';
 import ElectionDetails from './ElectionDetails';
+import ExtendedInformation from './ExtendedInformation';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/report_issue' element={<ReportIssue />} />
         <Route path='/find_a_place_to_vote' element={<FindAPlaceToVote />} />
         <Route path="/election-details" element={<ElectionDetails />} />
+        <Route path="/extended_info" element={<ExtendedInformation />} />
       </Routes>
     </Router>
   );
