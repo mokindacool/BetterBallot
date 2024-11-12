@@ -1,0 +1,6 @@
+-- bb_db.sql
+--
+-- BetterBallot SQL Database
+--
+-- LAST MODIFIED
+-- 2024-11-09
