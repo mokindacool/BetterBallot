@@ -34,7 +34,6 @@ class BB_DB {
      * @param {string} password 
      * @param {string} database 
      */
-
     constructor(hostname, port, username, password, database) {
         this.#hostname = hostname;
         this.#port     = port;
@@ -46,7 +45,6 @@ class BB_DB {
     /**
      * Connects to a MySQL database.
      */
-
     connect() {
         connection     = mysql.createConnection({
             host    : this.#hostname,
@@ -59,7 +57,6 @@ class BB_DB {
     /**
      * Terminates a connection to a MySQL database.
      */
-
     end() {
 
     }
