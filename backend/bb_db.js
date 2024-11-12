@@ -7,7 +7,6 @@
 
 // Database constants
 // +-----------------------------------+
-let connection = null;
 
 
 // Database hosted on MySQL
@@ -15,24 +14,34 @@ let connection = null;
 const mysql      = require('mysql');
 const { createPortal } = require('react-dom');
 
+/**
+ * Database connection object representing a MySQL database.
+ */
 class BB_DB {
-    // Private data members:
+    // Private data members
+    // +-----------------------------------+
+
     #hostname;          // Hostname of the database
     #port    ;          // Listening port (integer value)
     #username;          // Username of database account
     #password;          // Password of database account
     #database;          // Database name
 
+    // Public data members
+    // +-----------------------------------+
+
+    connection = null;
+
     /**
      * Constructs a BB_DB object, which is used to perform
      * operations on a MySQL database, such as connecting to
      * a database server.
      * 
-     * @param {string} hostname 
-     * @param {BigInt} port 
-     * @param {string} username 
-     * @param {string} password 
-     * @param {string} database 
+     * @param {string} hostname Hostname of database
+     * @param {BigInt} port     Server port of database
+     * @param {string} username Username of account accessing database
+     * @param {string} password Password of account accessing database
+     * @param {string} database Name of database (optional)
      */
     constructor(hostname, port, username, password, database) {
         this.#hostname = hostname;
@@ -43,10 +52,19 @@ class BB_DB {
     }
 
     /**
+     * Retrieves a database connection object.
+     * 
+     * @returns A database connection object if successful, otherwise ```null```.
+     */
+    getConnection() {
+        return connection;
+    }
+
+    /**
      * Connects to a MySQL database.
      */
     connect() {
-        connection     = mysql.createConnection({
+        connection  = mysql.createConnection({
             host    : this.#hostname,
             port    : this.#port,
             user    : this.#username,
@@ -54,11 +72,33 @@ class BB_DB {
         });
     }
 
+    // TODO: Create query tests to test connection stability.
+    // Consider timed and synchronous testing in the event of unexpected termination.
+
     /**
      * Terminates a connection to a MySQL database.
      */
     end() {
 
+        // NOTE: Do not forget to catch this!       
+        if (getConnection() === null) {
+            throw new Error("Attempted to end or terminate a nonexistent connection.");
+        }
+        
+        // Safely end an active, stable connection.
+        connection.end();
     }
 }
 
+// External functions
+// +-----------------------------------+
+
+/**
+ * Gets the database connection object.
+ * 
+ * @param {BB_DB} db BB_DB object (database object)
+ * @returns A list of tests and results of type ```{string, boolean}```
+ */
+function testBB_DBConnection(db) {
+
+}
