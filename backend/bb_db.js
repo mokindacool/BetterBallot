@@ -3,7 +3,7 @@
 // BetterBallot SQL Database
 //
 // LAST MODIFIED
-// 2024-11-12
+// 2024-11-13
 
 // Database constants
 // +-----------------------------------+
