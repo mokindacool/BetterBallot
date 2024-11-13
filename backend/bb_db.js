@@ -75,12 +75,16 @@ class BB_Database {
     // TODO: Create query tests to test connection stability.
     // Consider timed and synchronous testing in the event of unexpected termination.
 
+    testQueries() {
+
+    }
+
     /**
      *  Terminates a connection instantly without completing all queries.
      */
     terminate() {
         if (getConnection() === null) {
-            throw new Error("Attempted to end or terminate a nonexistent connection.");
+            throw new ConnectionError("Attempted to end or terminate a nonexistent connection.");
         }
 
         // Terminate connection instantly.
@@ -94,7 +98,7 @@ class BB_Database {
 
         // NOTE: Do not forget to catch this!       
         if (getConnection() === null) {
-            throw new Error("Attempted to end or terminate a nonexistent connection.");
+            throw new ConnectionError("Attempted to end or terminate a nonexistent connection.");
         }
         
         // Safely end an active, stable connection.
@@ -105,12 +109,19 @@ class BB_Database {
 // External functions
 // +-----------------------------------+
 
-/**
- * Gets the database connection object.
- * 
- * @param {BB_Database} db BB_DB object (database object)
- * @returns A list of tests and results of type ```{string, boolean}```
- */
-function testBB_DBConnection(db) {
 
+// Exception classes
+// +-----------------------------------+
+
+/**
+ *  Throws when a connection error occurs while an instance
+ *  of BB_Database is active.
+ */
+class ConnectionError extends Error {
+    // Private data members
+    // +-----------------------------------+
+
+    constructor(msg, options) {
+        super(msg, options);
+    }
 }
