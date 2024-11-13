@@ -70,6 +70,14 @@ class BB_Database {
             user    : this.#username,
             password: this.#password
         });
+
+        connection.connect(function(err) {
+            if (err) {
+                throw new ConnectionError("Connection to MySQL database failed" + err.stack);
+            }
+        });
+
+        console.log(connection.threadId);
     }
 
     // TODO: Create query tests to test connection stability.
