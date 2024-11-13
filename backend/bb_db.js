@@ -17,7 +17,7 @@ const { createPortal } = require('react-dom');
 /**
  * Database connection object representing a MySQL database.
  */
-class BB_DB {
+class BB_Database {
     // Private data members
     // +-----------------------------------+
 
@@ -76,7 +76,19 @@ class BB_DB {
     // Consider timed and synchronous testing in the event of unexpected termination.
 
     /**
-     * Terminates a connection to a MySQL database.
+     *  Terminates a connection instantly without completing all queries.
+     */
+    terminate() {
+        if (getConnection() === null) {
+            throw new Error("Attempted to end or terminate a nonexistent connection.");
+        }
+
+        // Terminate connection instantly.
+        connection.terminate();
+    }
+
+    /**
+     * Terminates a connection to a MySQL database safely.
      */
     end() {
 
@@ -96,7 +108,7 @@ class BB_DB {
 /**
  * Gets the database connection object.
  * 
- * @param {BB_DB} db BB_DB object (database object)
+ * @param {BB_Database} db BB_DB object (database object)
  * @returns A list of tests and results of type ```{string, boolean}```
  */
 function testBB_DBConnection(db) {
