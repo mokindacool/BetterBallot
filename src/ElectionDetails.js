@@ -219,28 +219,22 @@ function ElectionDetails() {
             </section>
         )}
 
+
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <ul className="footer-links">
-            <li><a href="/">Start Here</a></li>
-            <li><a href="/about_us">About Us</a></li>
-            <li><a href="/civic_duty">Civic Duty</a></li>
-            <li><a href="/get_involved">Get Involved</a></li>
-            <li><a href="/contact_us">Contact Us</a></li>
-            <li><a href="/report_issue">Report An Issue</a></li>
-            <li><a href="/our_data">Our Data</a></li>
-            <li><a href="/press">Press</a></li>
-          </ul>
-          <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
-          <div className="social-links">
-            <a href="#"><i className="fab fa-facebook"></i></a>
-            <a href="#"><i className="fab fa-linkedin"></i></a>
-            <a href="#"><i className="fab fa-youtube"></i></a>
-            <a href="#"><i className="fab fa-instagram"></i></a>
+      <div className="navigation-footer">
+        {/* <div className="divider"></div> */}
+        <footer className="footer">
+          <div className="divider"></div>
+          <div className="footer-content">
+            <p>&copy; 2024 Better Ballot. All rights reserved.</p>
+            <ul className="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about_us">About Us</a></li>
+              <li><a href="/get_involved">Get Involved</a></li>
+            </ul>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }
