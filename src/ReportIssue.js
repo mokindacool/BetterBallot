@@ -33,8 +33,8 @@ function ReportIssue() {
       {/* Navigation */}
       <header className="header">
         <div className="logo">
+          <span className="logo-text">BETTER</span>
           <span className="logo-text">BALLOT</span>
-          <span className="logo-text">BUDDY</span>
         </div>
         <nav className="navbar">
           <a href="/">Home</a>
