@@ -37,7 +37,7 @@ function AboutUs() {
         Our goal is to create more tools like the Smart Ballot that allow you to streamline a notoriously tricky yet important task in order to increase voter turnout around the country.
       </p>
 
-      <form className="contact-form">
+      {/* <form className="contact-form">
         <label htmlFor="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" />
 
@@ -53,7 +53,7 @@ function AboutUs() {
 
         <button type="submit" className="submit-button">Submit</button> 
 
-      </form>
+      </form> */}
     </div>
 
     {/* Footer */}
