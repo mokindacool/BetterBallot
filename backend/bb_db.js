@@ -3,7 +3,7 @@
 // BetterBallot SQL Database
 //
 // LAST MODIFIED
-// 2024-11-13
+// 2024-12-12
 
 // Database constants
 // +-----------------------------------+
@@ -11,7 +11,7 @@
 
 // Database hosted on MySQL
 // +-----------------------------------+
-const mysql      = require('mysql');
+const mysql            = require('mysql');
 const { createPortal } = require('react-dom');
 
 /**
@@ -126,6 +126,18 @@ class BB_Database {
  *  of BB_Database is active.
  */
 class ConnectionError extends Error {
+    // Private data members
+    // +-----------------------------------+
+
+    constructor(msg, options) {
+        super(msg, options);
+    }
+}
+
+/**
+ *  Throws when an attempt to retrieve data fails.
+ */
+class FailedToFetchInfoError extends Error {
     // Private data members
     // +-----------------------------------+
 
