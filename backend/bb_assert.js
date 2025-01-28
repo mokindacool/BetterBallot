@@ -5,12 +5,13 @@
 // LAST MODIFIED
 // 2024-12-22
 
-function fail(expr, target, compare) {
-    
+function fail(expr, target, compare, testname) {
+    console.log(, testname)
+    console.log(`${'='.repeat(20)}`);
 }
 
 function loadTests() {
-    
+
 }
 
 function runTest(expr, target, compare) {

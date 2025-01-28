@@ -84,7 +84,7 @@ class BB_Database {
     // Consider timed and synchronous testing in the event of unexpected termination.
 
     testQueries() {
-
+        
     }
 
     /**
