@@ -11,6 +11,7 @@ import ReportIssue from './ReportIssue';
 import FindAPlaceToVote from './FindAPlaceToVote';
 import ElectionDetails from './ElectionDetails';
 import ExtendedInformation from './ExtendedInformation';
+import CandidateProfile from './CandidateProfile';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/find_a_place_to_vote' element={<FindAPlaceToVote />} />
         <Route path="/election-details" element={<ElectionDetails />} />
         <Route path="/extended_info" element={<ExtendedInformation />} />
+        <Route path="/candidate_profile" element={<CandidateProfile />} />
       </Routes>
     </Router>
   );

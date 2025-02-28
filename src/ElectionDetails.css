@@ -328,3 +328,33 @@ body {
 .election-details-container {
   padding-bottom: 100px; /* Ensures the footer doesn't overlap content */
 }
+
+/* Add these styles to your ElectionDetails.css file */
+
+.clickable-candidate {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.clickable-candidate:hover {
+  background-color: #C7BDB1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clickable-candidate::after {
+  content: "View Profile →";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #01395E;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.clickable-candidate:hover::after {
+  opacity: 1;
+}

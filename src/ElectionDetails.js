@@ -1,11 +1,42 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './ElectionDetails.css';
 
 function ElectionDetails() {
   const location = useLocation();
+  const navigate = useNavigate();
   const initialAddress = location.state?.address || "";
   const [address, setAddress] = useState(initialAddress);
+
+  // Map of candidate names to their IDs for linking to profiles
+  const candidateIds = {
+    "Todd Andrew": "7",
+    "Nilang Gor": "8",
+    "Shoshana O'Keefe": "9",
+    "Jenny Guarino": "2",
+    "Terry Taplin": "2",
+    "Deborah Matthews": "10",
+    "Ben Bartlett (I)": "3",
+    "John 'Chip' Moore": "3",
+    "Brent Blackaby": "11",
+    "Andy Katz": "12",
+    "Logan Bowle": "6", 
+    "Sophia Hahn": "13",
+    "Kate Harrison": "1",
+    "Aden Ishii": "14",
+    "Naomi Pete": "15",
+    "Avery Abaugh": "16",
+    "Xavier Johnson": "17", 
+    "Andy Kelley": "18",
+    "Carole Marasovic": "19",
+    "Alfred Twu": "20",
+    "Dominique Walker": "21",
+    "Laura Babitt": "22",
+    "Jen Corn": "23",
+    "Norma J F Harrison": "24",
+    "Abdur Sikher": "25",
+    "Ana Vasudeo": "26"
+  };
 
   const electionDetails = {
     "District 1": {
@@ -122,6 +153,19 @@ function ElectionDetails() {
     setAddress(event.target.value);
   };
 
+  // Function to navigate to candidate profiles with selected candidate
+  const navigateToCandidateProfile = (candidateName) => {
+    // Check if the candidate name is valid and not a placeholder text
+    if (candidateIds[candidateName] && !candidateName.includes("election")) {
+      // Navigate to candidate profiles page with the selected candidate ID
+      navigate('/candidate_profile', { 
+        state: { 
+          selectedCandidateId: candidateIds[candidateName]
+        } 
+      });
+    }
+  };
+
   // Find all districts associated with the given zip code
   const zipCode = address.match(/\d{5}/)?.[0];
   const associatedDistricts = Object.keys(electionDetails).filter(districtKey =>
@@ -140,10 +184,11 @@ function ElectionDetails() {
         </div>
         <nav className="navbar">
           <a href="/">Home</a>
+          <a href="/candidate_profiles">Candidate Profiles</a>
           <a href="/about_us">About Us</a>
           <a href="/get_involved">Get Involved</a>
         </nav>
-        <a href="/candidate_profiles" className="link">www.betterballot.com</a>
+        <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
       </header>
 
       {/* Address Header/Search Bar */}
@@ -161,35 +206,39 @@ function ElectionDetails() {
 
       {/* Local Elections Section */}
       <section className="local-election-section">
-    <h3 className="local-election-title">Local Election</h3>
-    {associatedDistricts.length > 0 ? (
-        associatedDistricts.map((district, index) => (
-            electionDetails[district].elections.map((election, i) => (
-                <div key={`${index}-${i}`} className="election-card">
-                    <div className="election-card-content">
-                        <button
-                            className="dropdown-button"
-                            onClick={() => toggleDropdown(election.office)}
-                        >
-                            {election.office}: {election.description}
-                        </button>
-                        {dropdownOpen[election.office] && (
-                            <ul className="candidates-list">
-                                {election.candidates.map((candidate, j) => (
-                                    <li key={j} className="candidate-card">
-                                        <span className="candidate-label">{candidate}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+        <h3 className="local-election-title">Local Election</h3>
+        {associatedDistricts.length > 0 ? (
+            associatedDistricts.map((district, index) => (
+                electionDetails[district].elections.map((election, i) => (
+                    <div key={`${index}-${i}`} className="election-card">
+                        <div className="election-card-content">
+                            <button
+                                className="dropdown-button"
+                                onClick={() => toggleDropdown(election.office)}
+                            >
+                                {election.office}: {election.description}
+                            </button>
+                            {dropdownOpen[election.office] && (
+                                <ul className="candidates-list">
+                                    {election.candidates.map((candidate, j) => (
+                                        <li 
+                                          key={j} 
+                                          className={`candidate-card ${!candidate.includes("election") ? "clickable-candidate" : ""}`}
+                                          onClick={() => navigateToCandidateProfile(candidate)}
+                                        >
+                                            <span className="candidate-label">{candidate}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     </div>
-                </div>
+                ))
             ))
-        ))
-    ) : ( //Basically means If-else statement in JSX
-    <p class="no-election-details">No election details found for the provided address.</p>
-    )}
-</section>
+        ) : (
+        <p className="no-election-details">No election details found for the provided address.</p>
+        )}
+      </section>
 
       {/* Statewide Elections Section */}
         {(zipCode && ["94701", "94702", "94703", "94704", "94705", "94706", "94707", "94708", "94709"].includes(zipCode)) && (
@@ -207,7 +256,11 @@ function ElectionDetails() {
                             {dropdownOpen[election.office] && (
                                 <ul className="candidates-list">
                                     {election.candidates.map((candidate, i) => (
-                                        <li key={i} className="candidate-card">
+                                        <li 
+                                          key={i} 
+                                          className="candidate-card clickable-candidate"
+                                          onClick={() => navigateToCandidateProfile(candidate)}
+                                        >
                                             <span className="candidate-label">{candidate}</span>
                                         </li>
                                     ))}
@@ -219,16 +272,15 @@ function ElectionDetails() {
             </section>
         )}
 
-
       {/* Footer */}
       <div className="navigation-footer">
-        {/* <div className="divider"></div> */}
         <footer className="footer">
           <div className="divider"></div>
           <div className="footer-content">
             <p>&copy; 2024 Better Ballot. All rights reserved.</p>
             <ul className="footer-links">
               <li><a href="/">Home</a></li>
+              <li><a href="/candidate_profiles">Candidate Profiles</a></li>
               <li><a href="/about_us">About Us</a></li>
               <li><a href="/get_involved">Get Involved</a></li>
             </ul>
