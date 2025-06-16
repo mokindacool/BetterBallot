@@ -86,11 +86,11 @@ function CandidateProfiles() {
             <span className="logo-text">BALLOT</span>
           </div>
           <nav className="navbar">
-            <a href="/">Home</a>
-            <a href="/candidate_profile" className="active">Candidate Profiles</a>
-            <a href="/about_us">About Us</a>
-            <a href="/get_involved">Get Involved</a>
-          </nav>
+          <a href="/">Home</a>
+          <a href="/about_us">About Us</a>
+          <a href="/get_involved">Get Involved</a>
+          <a href="/candidate_profile">Candidate Profiles</a>
+        </nav>
           <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
         </header>
         

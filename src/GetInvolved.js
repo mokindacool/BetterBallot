@@ -14,6 +14,7 @@ function GetInvolved() {
           <a href="/">Home</a>
           <a href="/about_us">About Us</a>
           <a href="/get_involved">Get Involved</a>
+          <a href="/candidate_profile">Candidate Profiles</a>
         </nav>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
         <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>

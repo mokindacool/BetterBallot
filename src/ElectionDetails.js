@@ -184,9 +184,9 @@ function ElectionDetails() {
         </div>
         <nav className="navbar">
           <a href="/">Home</a>
-          <a href="/candidate_profiles">Candidate Profiles</a>
           <a href="/about_us">About Us</a>
           <a href="/get_involved">Get Involved</a>
+          <a href="/candidate_profile">Candidate Profiles</a>
         </nav>
         <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
       </header>
