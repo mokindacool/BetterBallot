@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import AboutUs from './AboutUs'; 
-import GetInvolved from './GetInvolved';
-import VotingEligibility from './VotingEligibility';
-import RegisterToVote from './RegisterToVote';
-import AbsenteeBallot from './AbsenteeBallot';
-import PollWorker from './PollWorker';
-import ReportIssue from './ReportIssue';
-import FindAPlaceToVote from './FindAPlaceToVote';
-import ElectionDetails from './ElectionDetails';
-import ExtendedInformation from './ExtendedInformation';
-import CandidateProfile from './CandidateProfile';
+import Home from './pages/Home/Home';
+import AboutUs from './pages/AboutUs/AboutUs';
+import GetInvolved from './pages/GetInvolved/GetInvolved';
+import VotingEligibility from './pages/VotingEligibility/VotingEligibility';
+import RegisterToVote from './pages/RegisterToVote/RegisterToVote';
+import AbsenteeBallot from './pages/AbsenteeBallot/AbsenteeBallot';
+import PollWorker from './pages/PollWorker/PollWorker';
+import ReportIssue from './pages/ReportIssue/ReportIssue';
+import FindAPlaceToVote from './pages/FindAPlaceToVote/FindAPlaceToVote';
+import ElectionDetails from './pages/ElectionDetails/ElectionDetails';
+import ExtendedInformation from './pages/ExtendedInformation/ExtendedInformation';
+import CandidateProfile from './pages/CandidateProfile/CandidateProfile';
 
 function App() {
   return (

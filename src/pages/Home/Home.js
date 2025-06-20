@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 function Home() {
   const [input, setInput] = useState("");
@@ -47,20 +49,7 @@ function Home() {
   return (
     <div className="palette-2-design-variation">
       {/* Header */}
-      <header className="header">
-        <div className="logo">
-          <span className="logo-text">BETTER</span>
-          <span className="logo-text">BALLOT</span>
-        </div>
-        <nav className="navbar">
-          <a href="/">Home</a>
-          <a href="/about_us">About Us</a>
-          <a href="/get_involved">Get Involved</a>
-          <a href="/candidate_profile">Candidate Profiles</a>
-        </nav>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"></link>
-        <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="main-content">
@@ -134,19 +123,7 @@ function Home() {
       </main>
 
       {/* Footer */}
-      <div className="navigation-footer">
-        <div className="divider"></div>
-        <footer className="footer">
-          <div className="footer-content">
-            <p>&copy; 2024 Better Ballot. All rights reserved.</p>
-            <ul className="footer-links">
-              <li><a href="/">Home</a></li>
-              <li><a href="/about_us">About Us</a></li>
-              <li><a href="/get_involved">Get Involved</a></li>
-            </ul>
-          </div>
-        </footer>
-      </div>
+      <Footer />
     </div>
   );
 }
