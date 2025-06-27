@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Cards.css';
+import '../../components/Cards/Cards.css';
 
 function ReportIssue() {
   const initialFormState = {

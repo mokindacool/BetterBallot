@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cards.css';
+import '../../components/Cards/Cards.css';
 
 function FindAPlaceToVote() {
   return (

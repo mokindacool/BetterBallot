@@ -1,5 +1,5 @@
 import React from "react";
-import './Cards.css';
+import '../../components/Cards/Cards.css';
 
 function AbsenteeBallot() {
   return (
@@ -23,7 +23,7 @@ function AbsenteeBallot() {
 
       <div className="description-container">
         <div className="description">
-          In the case you can’t make it to your local polling center - vote from wherever you are.
+          In the case you can't make it to your local polling center - vote from wherever you are.
         </div>
       </div>
 
