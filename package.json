@@ -2,6 +2,7 @@
     "name": "finalbb",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://mokindacool.github.io/BetterBallot",
     "dependencies": {
         "@react-spring/web": "^9.7.5",
         "@testing-library/jest-dom": "^5.17.0",
