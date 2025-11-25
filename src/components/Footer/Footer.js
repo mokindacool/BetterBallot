@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
@@ -9,9 +10,9 @@ function Footer() {
                 <div className="footer-content">
                     <p>&copy; 2024 Better Ballot. All rights reserved.</p>
                     <ul className="footer-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about_us">About Us</a></li>
-                        <li><a href="/get_involved">Get Involved</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/about_us">About Us</Link></li>
+                        <li><Link to="/get_involved">Get Involved</Link></li>
                     </ul>
                 </div>
             </footer>
