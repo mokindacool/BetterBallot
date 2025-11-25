@@ -1,13 +1,34 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5002; 
-const googleCivicsApiKey = process.env.GOOGLE_CIVICS_API_KEY;
+const PORT = process.env.PORT || 5002;
+const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
+// Validate that API key is present
+if (!GOOGLE_PLACES_API_KEY) {
+  console.error('ERROR: GOOGLE_PLACES_API_KEY is not set in .env file');
+  process.exit(1);
+}
 
+// Middleware
 app.use(cors());
+app.use(express.json());
+
+// Import routes
+const candidatesRouter = require('./routes/candidates');
+const electionsRouter = require('./routes/elections');
+const authRouter = require('./routes/auth');
+
+// Initialize database
+require('./db/database');
+
+// API Routes
+app.use('/api/auth', authRouter);
+app.use('/api/candidates', candidatesRouter);
+app.use('/api/elections', electionsRouter);
 
 app.get('/', (req, res) => {
   res.send('Backend server is running. Use the /autocomplete endpoint for address suggestions.');
@@ -21,7 +42,7 @@ app.get('/autocomplete', async (req, res) => {
     return res.status(400).send({ error: 'Input must be at least 3 characters long' });
   }
 
-  const apiUrl = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(input)}&key=${apiKey}`;
+  const apiUrl = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(input)}&key=${GOOGLE_PLACES_API_KEY}`;
 
   try {
     const response = await axios.get(apiUrl);

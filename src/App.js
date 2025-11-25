@@ -12,6 +12,10 @@ import FindAPlaceToVote from './pages/FindAPlaceToVote/FindAPlaceToVote';
 import ElectionDetails from './pages/ElectionDetails/ElectionDetails';
 import ExtendedInformation from './pages/ExtendedInformation/ExtendedInformation';
 import CandidateProfile from './pages/CandidateProfile/CandidateProfile';
+import CandidateDetail from './pages/CandidateDetail/CandidateDetail';
+import Compare from './pages/Compare/Compare';
+import Admin from './pages/Admin/Admin';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
         <Route path="/election-details" element={<ElectionDetails />} />
         <Route path="/extended_info" element={<ExtendedInformation />} />
         <Route path="/candidate_profile" element={<CandidateProfile />} />
+        <Route path="/candidate/:id" element={<CandidateDetail />} />
+        <Route path="/compare" element={<Compare />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );

@@ -84,9 +84,12 @@ body {
 
 .input-field-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: 20px;
+  position: relative;
 }
 
 .input-field-container {
@@ -135,30 +138,57 @@ body {
   background: linear-gradient(to right, #014A61 0%, #01223B 100%);
 }
 
+.search-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .autocomplete-results {
-  position: relative;
-  top: 175px; /* Positioning the suggestions just below the input container */
-  left: 0;
-  right: 0;
+  position: absolute;
+  top: 75px;
+  width: 874px;
   background: white;
   border: 1px solid #E0E0E0;
-  border-top: none; /* Remove the top border to visually connect with input field */
+  border-top: none;
   border-radius: 0 0 20px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10; /* Ensure it appears above other elements */
-  max-height: 200px;
+  z-index: 10;
+  max-height: 300px;
   overflow-y: auto;
 }
 
 /* Individual Suggestion Styling */
-/* .suggestion {
-  padding: 10px 20px;
+.suggestion {
+  padding: 15px 25px;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
-} */
+  color: #333;
+  font-size: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
 
-.suggestion:hover {
-  background: #f0f0f0; /* Light background for visual feedback on hover */
+.suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestion:hover,
+.suggestion.selected {
+  background: #e3f2fd;
+  color: #01395E;
+}
+
+/* Error Message Styling */
+.error-message {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #fee;
+  color: #c33;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  max-width: 874px;
+  width: 100%;
 }
 
 

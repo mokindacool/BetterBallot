@@ -19,8 +19,9 @@ function AboutUs() {
         <a href="https://www.betterballot.info" className="link">www.betterballot.info</a>
       </header>
       
+    <div className="title_header">About Us</div>
+
     <div className="about-us">
-      <h2 className="title">About Us</h2>
       <p className="mission-statement">
         Ballot Buddy is a platform that stems from the idea that all those that are able and willing to have a voice should be able to do so without inconvenience. Our team encompasses engineers, designers, and data scientists that are passionate about creating spaces and tools for more and more voices to be heard.
       </p>
